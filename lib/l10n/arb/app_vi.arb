@@ -1,0 +1,15 @@
+{
+    "@@locale": "vi",
+    "hello_world": "Xin chào!",
+    "start_game": "Bắt đầu",
+    "startGame": "Bắt đầu",
+    "hint": "Gợi ý",
+    "nextLevel": "Lên cấp",
+    "totalMoves": "Số lượt đi",
+    "simple": "Đơn giản",
+    "booksStack": "Xếp sách",
+    "pyramidSaving": "Kim Tự Tháp",
+    "howToPlaySimple": "Hướng dẫn\n\n- UPuzzle sẽ đưa ra một hàng các thanh có kèm theo số bị xáo trộn thứ tự\n\n- Bạn cần phải sắp xếp sao cho thứ tự các thanh được xếp từ thấp đến cao\n\n- Mỗi lượt chọn sẽ di chuyển thanh chọn lên trên cùng",
+    "howToPlayBooksStack": "How to play\n\n",
+    "howToPlayPyramid": "How to play\n\n"
+}

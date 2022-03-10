@@ -1,0 +1,15 @@
+{
+    "@@locale": "en",
+    "hello_world": "Hello World!",
+    "start_game": "Start game",
+    "startGame": "Start game",
+    "hint": "Hint",
+    "nextLevel": "Next level",
+    "totalMoves": "Total moves",
+    "simple": "Simple",
+    "booksStack": "Books Stack",
+    "pyramidSaving": "Pyramid Saving",
+    "howToPlaySimple": "How to play\n\n- UPuzzle will randomly a stack of tiles with its own number\n\n- You need to arrange the stack in ascending ordered from the top\n\n- Each move will bring the picked tile to the top",
+    "howToPlayBooksStack": "How to play\n\n",
+    "howToPlayPyramid": "How to play\n\n"
+}
