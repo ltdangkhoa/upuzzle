@@ -20,17 +20,17 @@ jobs:
       # Checkout source code and get packages.
       - name: Checkout source code
         uses: actions/checkout@v2
-      - run: flutter pub get
+      - run: flutter pub get && flutter build web --release
 
       # # Build for web release
       # - name: Build web release
       #   run: flutter build web --release
-      #
-      # # Deploy to firebase
-      # - name: Deploy to firebase
-      # - uses: FirebaseExtended/action-hosting-deploy@v0
-      #   with:
-      #     repoToken: '${{ secrets.GITHUB_TOKEN }}'
-      #     firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_UPUZZLE_CFDEE }}'
-      #     channelId: live
-      #     projectId: upuzzle-cfdee
+
+      # Deploy to firebase
+      - name: Deploy to firebase
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_UPUZZLE_CFDEE }}'
+          channelId: live
+          projectId: upuzzle-cfdee
