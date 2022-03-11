@@ -17,11 +17,11 @@ jobs:
           channel: master
       - run: flutter doctor -v
 
-      # # Checkout source code and get packages.
-      # - name: Checkout source code
-      #   uses: actions/checkout@v2
-      # - run: flutter pub get
-      #
+      # Checkout source code and get packages.
+      - name: Checkout source code
+        uses: actions/checkout@v2
+      - run: flutter pub get
+
       # # Build for web release
       # - name: Build web release
       #   run: flutter build web --release
