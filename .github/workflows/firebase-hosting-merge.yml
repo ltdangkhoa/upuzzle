@@ -24,7 +24,7 @@ jobs:
 
       # Build for web release
       - name: Build web release
-      - run: flutter build web --release
+        run: flutter build web --release
 
       # Deploy to firebase
       - name: Deploy to firebase
