@@ -22,46 +22,6 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
-  late final PlatformHelper _platformHelper;
-  late final Timer _timer;
-
-  static const localAssetsPrefix = 'assets/';
-  static final audioAssets = [
-    'assets/audio/click.mp3',
-    'assets/audio/success.mp3',
-    'assets/audio/tile_move.mp3',
-  ];
-
-  @override
-  void initState() {
-    super.initState();
-
-    _platformHelper = widget._platformHelperFactory();
-    for (final audioAsset in audioAssets) {
-      prefetchToMemory(audioAsset);
-    }
-  }
-
-  @override
-  void dispose() {
-    _timer.cancel();
-    super.dispose();
-  }
-
-  /// Prefetches the given [filePath] to memory.
-  Future<void> prefetchToMemory(String filePath) async {
-    if (_platformHelper.isWeb) {
-      // We rely on browser caching here. Once the browser downloads the file,
-      // the native implementation should be able to access it from cache.
-      await http.get(Uri.parse('$localAssetsPrefix$filePath'));
-      return;
-    }
-    throw UnimplementedError(
-      'The function `prefetchToMemory` is not implemented '
-      'for platforms other than Web.',
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Consumer<LanguageModel>(builder: (_, data, child) {

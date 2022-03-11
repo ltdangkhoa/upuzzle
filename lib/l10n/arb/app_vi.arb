@@ -10,6 +10,6 @@
     "booksStack": "Xếp sách",
     "pyramidSaving": "Kim Tự Tháp",
     "howToPlaySimple": "Hướng dẫn\n\n- UPuzzle sẽ đưa ra một hàng các thanh có kèm theo số bị xáo trộn thứ tự\n\n- Bạn cần phải sắp xếp sao cho thứ tự các thanh được xếp từ thấp đến cao\n\n- Mỗi lượt chọn sẽ di chuyển thanh chọn lên trên cùng",
-    "howToPlayBooksStack": "How to play\n\n",
-    "howToPlayPyramid": "How to play\n\n"
+    "howToPlayBooksStack": "Hướng dẫn\n\n- Một chồng sách có số thứ tự bị xáo trộn vị trí.\n\n- Hãy giúp sắp xếp lại theo đúng thứ tự tăng dần từ trên xuống.\n\n- Mỗi lượt chọn sẽ mang cuốn sách ra để bạn biết số thứ tự. Những cuốn sách còn lại sẽ bị đẩy xuống.",
+    "howToPlayPyramid": "Hướng dẫn\n\n- Kim tự tháp bị chìm dưới biển với các mảnh ngang bị thay đổi vị trí. Bạn có thể giúp xếp lại hình dạng kim tự tháp?\n\n- Mỗi lượt di chuyển sẽ mang mảnh ngang lên khỏi mặt nước để bạn biết được hình dạng mảnh ngang đó."
 }

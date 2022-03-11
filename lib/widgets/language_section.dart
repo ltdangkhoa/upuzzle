@@ -33,18 +33,20 @@ class LanguageSection extends StatelessWidget {
               },
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  languageCode,
-                  style: PuzzleTextStyle.label.copyWith(
-                    color: appLangCode == languageCode
-                        ? Colors.black
-                        : Colors.grey,
-                    fontWeight: appLangCode == languageCode
-                        ? FontWeight.w500
-                        : FontWeight.w300,
-                    fontSize: appLangCode == languageCode ? 18 : 14,
-                  ),
-                ),
+                child: languageCode == 'uk'
+                    ? Image.asset('assets/images/uk_flag.png')
+                    : Text(
+                        languageCode,
+                        style: PuzzleTextStyle.label.copyWith(
+                          color: appLangCode == languageCode
+                              ? Colors.black
+                              : Colors.grey,
+                          fontWeight: appLangCode == languageCode
+                              ? FontWeight.w500
+                              : FontWeight.w300,
+                          fontSize: appLangCode == languageCode ? 18 : 14,
+                        ),
+                      ),
               ),
             );
           }),

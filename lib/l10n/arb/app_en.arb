@@ -9,7 +9,7 @@
     "simple": "Simple",
     "booksStack": "Books Stack",
     "pyramidSaving": "Pyramid Saving",
-    "howToPlaySimple": "How to play\n\n- UPuzzle will randomly a stack of tiles with its own number\n\n- You need to arrange the stack in ascending ordered from the top\n\n- Each move will bring the picked tile to the top",
-    "howToPlayBooksStack": "How to play\n\n",
-    "howToPlayPyramid": "How to play\n\n"
+    "howToPlaySimple": "How to play\n\n- UPuzzle will randomly a stack of tiles with its own number\n\n- You need to arrange the stack in ascending order from the top\n\n- Each move will bring the picked item to the top and push others down",
+    "howToPlayBooksStack": "How to play\n\n- There is a stack of series books which have been disorder in title number.\n\n- You are required to arrange these books in ascending order from the top.\n\n- Each pick will bring out the book to let you know the title number and others will pushing down",
+    "howToPlayPyramid": "How to play\n\n- Pyramid have been sunk to the ocean with unordered slides. Can you help for saving the pyramid with its original triangle shape?\n\n- Each move will bring the slide to above the sea surface to let you know the slide's shape"
 }
