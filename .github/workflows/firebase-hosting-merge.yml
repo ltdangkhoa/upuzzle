@@ -20,14 +20,15 @@ jobs:
       # Checkout source code and get packages.
       - name: Checkout source code
         uses: actions/checkout@v2
-      - run: flutter pub get && flutter build web --release
+      - run: flutter pub get
 
       # # Build for web release
       # - name: Build web release
       #   run: flutter build web --release
 
       # Deploy to firebase
-      - name: Deploy to firebase
+      - uses: actions/checkout@v2
+      - run: flutter build web --release
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
