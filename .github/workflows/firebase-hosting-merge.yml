@@ -17,20 +17,20 @@ jobs:
           channel: master
       - run: flutter doctor -v
 
-      # Checkout source code and get packages.
-      - name: Checkout source code
-        uses: actions/checkout@v2
-      - run: flutter pub get
-
-      # Build for web release
-      - name: Build web release
-        run: flutter build web --release
-
-      # Deploy to firebase
-      - name: Deploy to firebase
-      - uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_UPUZZLE_CFDEE }}'
-          channelId: live
-          projectId: upuzzle-cfdee
+      # # Checkout source code and get packages.
+      # - name: Checkout source code
+      #   uses: actions/checkout@v2
+      # - run: flutter pub get
+      #
+      # # Build for web release
+      # - name: Build web release
+      #   run: flutter build web --release
+      #
+      # # Deploy to firebase
+      # - name: Deploy to firebase
+      # - uses: FirebaseExtended/action-hosting-deploy@v0
+      #   with:
+      #     repoToken: '${{ secrets.GITHUB_TOKEN }}'
+      #     firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_UPUZZLE_CFDEE }}'
+      #     channelId: live
+      #     projectId: upuzzle-cfdee
