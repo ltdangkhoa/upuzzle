@@ -3,6 +3,8 @@ UPuzzle is a simple game by challenge player to solve an unordered stacks with h
 
 This game required player to have a good strategy on selecting item as well as good memory on picked items. Game will be solved after all items is sorted in ascending order from top to bottom
 
+![](upuzzle_gallery.jpg)
+
 # "Try it out" links
 [Web app](https://upuzzle-cfdee.web.app)
 
@@ -15,13 +17,13 @@ UPuzzle have been created with that simple idea.
 
 ## What it does
 UPuzzle currently have 3 game modes (**Simple**, **Books Stack**, **Pyramid Saving**) but keep the same playing logic: 
-- Game started with a random ordered of tiles, books...
+- Game started with a unorder of tiles, books...
 - Player can only know value of the top item
-- Player will pick out item and place it to the top
+- Player will pick out item and place it to the top while others pushing down
 - Puzzle will be solved after all items is sorted in ascending order
 
 ## How I built it
-The UPuzzle was built with Flutter framewor which mainly focus on multiple screen size. That's why I've cloned some sources from sample project for responsive layout. 
+The UPuzzle was built with Flutter framework which mainly focus on multiple screen size. That's why I've cloned some sources from sample project for responsive layout. 
 
 For **modeling**, the sample project heavily depend on Bloc that I'm currently not familiar like Provider. After days for consideration, I decided to use Provider as main app state management
 
