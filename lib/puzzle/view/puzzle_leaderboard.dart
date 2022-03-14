@@ -47,33 +47,80 @@ class _PuzzleLeaderboardState extends State<PuzzleLeaderboard> {
             return Center(child: CircularProgressIndicator.adaptive());
           }
 
+          int rank = 0;
           return ListView(
             children: snapshot.data!.docs.map((DocumentSnapshot document) {
               Map<String, dynamic> data =
                   document.data()! as Map<String, dynamic>;
+              rank += 1;
+              Color rankColor = Colors.blue;
+              if (rank == 1) {
+                rankColor = Color(0xffFFD700);
+              } else if (rank == 2) {
+                rankColor = Color(0xffC0C0C0);
+              } else if (rank == 3) {
+                rankColor = Color(0xffCD7F32);
+              }
 
               final timerDuration = Duration(seconds: data['time']);
-              return ListTile(
-                leading: Icon(
-                  Icons.supervised_user_circle_sharp,
-                  color: Colors.blue,
-                ),
-                title: AnimatedDefaultTextStyle(
-                  key: const Key('leaderboard_title'),
-                  style: PuzzleTextStyle.label.copyWith(
-                    color: Colors.black,
+              return Container(
+                margin: EdgeInsets.only(bottom: 4.0),
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      Colors.transparent.withOpacity(0.1),
+                      Colors.transparent.withOpacity(0.05)
+                    ],
                   ),
-                  duration: Duration(milliseconds: 500),
-                  child: Text(data['player']),
+                  borderRadius: BorderRadius.all(Radius.circular(15)),
                 ),
-                subtitle: AnimatedDefaultTextStyle(
-                  key: const Key('leaderboard_subtitle'),
-                  style: PuzzleTextStyle.label.copyWith(
-                    color: Colors.grey,
+                child: ListTile(
+                  leading: rank < 4
+                      ? Container(
+                          width: 30,
+                          height: 30,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: rankColor,
+                          ),
+                          child: Container(
+                            alignment: Alignment.center,
+                            child: AnimatedDefaultTextStyle(
+                              key: const Key('leaderboard_rank'),
+                              style: PuzzleTextStyle.label.copyWith(
+                                color: Colors.white,
+                              ),
+                              duration: Duration(milliseconds: 500),
+                              child: Text(
+                                rank.toString(),
+                              ),
+                            ),
+                          ),
+                        )
+                      : Icon(
+                          Icons.leaderboard,
+                          color: Colors.blue,
+                          size: 30,
+                        ),
+                  title: AnimatedDefaultTextStyle(
+                    key: const Key('leaderboard_title'),
+                    style: PuzzleTextStyle.label.copyWith(
+                      color: Colors.black,
+                    ),
+                    duration: Duration(milliseconds: 500),
+                    child: Text(data['player']),
                   ),
-                  duration: Duration(milliseconds: 500),
-                  child: Text(
-                    'Level: ${data['level']} (${data['move']} moves - ${formatDuration(timerDuration)})',
+                  subtitle: AnimatedDefaultTextStyle(
+                    key: const Key('leaderboard_subtitle'),
+                    style: PuzzleTextStyle.label.copyWith(
+                      color: Colors.grey,
+                    ),
+                    duration: Duration(milliseconds: 500),
+                    child: Text(
+                      'Level: ${data['level']} (${data['move']} moves - ${formatDuration(timerDuration)})',
+                    ),
                   ),
                 ),
               );
