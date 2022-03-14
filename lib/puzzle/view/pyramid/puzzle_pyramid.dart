@@ -62,7 +62,7 @@ class _PuzzlePyramidState extends State<PuzzlePyramid> {
               Colors.white.withOpacity(0.8),
               BlendMode.lighten,
             ),
-            image: AssetImage("assets/images/puzzle_pyramid_bg.jpg"),
+            image: AssetImage("assets/images/puzzle_pyramid.jpg"),
             fit: BoxFit.cover,
           ),
         ),

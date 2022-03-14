@@ -62,7 +62,7 @@ class _PuzzleSimpleState extends State<PuzzleSimple> {
             Colors.white.withOpacity(0.8),
             BlendMode.lighten,
           ),
-          image: AssetImage("assets/images/puzzle_bg.jpg"),
+          image: AssetImage("assets/images/puzzle_simple.jpg"),
           fit: BoxFit.cover,
         ),
       ),

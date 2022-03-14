@@ -68,7 +68,7 @@ class _PuzzleBookStackState extends State<PuzzleBookStack> {
               Colors.white.withOpacity(0.8),
               BlendMode.lighten,
             ),
-            image: AssetImage("assets/images/puzzle_book_bg.jpg"),
+            image: AssetImage("assets/images/puzzle_book_stack.jpg"),
             fit: BoxFit.cover,
           ),
         ),
