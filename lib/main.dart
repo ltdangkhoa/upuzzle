@@ -1,14 +1,18 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'app/view/app.dart';
+import 'firebase_options.dart';
 import 'models/models.dart';
 
-// void main() {
-//   runApp(const App());
-// }
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  print('---initFirebase---');
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 
   print('---fetchAppModel---');
   AppModel appModel = AppModel();

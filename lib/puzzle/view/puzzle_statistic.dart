@@ -7,6 +7,7 @@ import '../../layout/layout.dart';
 import '../../models/models.dart';
 import '../../typography/typography.dart';
 import '../../widgets/widgets.dart';
+import 'puzzle_submit_score.dart';
 
 class PuzzleStatistic extends StatelessWidget {
   @override
@@ -82,6 +83,9 @@ class PuzzleStatistic extends StatelessWidget {
                   ],
                 ),
               ),
+              if (sorted == true) ...[
+                SubmitScore(),
+              ],
             ],
           );
         },

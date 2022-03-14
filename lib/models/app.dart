@@ -11,6 +11,13 @@ class AppModel extends ChangeNotifier {
     notifyListeners();
   }
 
+  String _player = 'upuzzle_player';
+  String get player => _player;
+  Future<void> updatePlayer(String value) async {
+    _player = value;
+    notifyListeners();
+  }
+
   bool _modalMenu = false;
   bool get modalMenu => _modalMenu;
   Future<void> updateMenu(bool value) async {
@@ -18,25 +25,37 @@ class AppModel extends ChangeNotifier {
     notifyListeners();
   }
 
+  String getPuzzleModeStr(PuzzleMode mode) {
+    if (mode == PuzzleMode.simple) {
+      return 'simple';
+    } else if (mode == PuzzleMode.book_stack) {
+      return 'book_stack';
+    } else if (mode == PuzzleMode.pyramid) {
+      return 'pyramid';
+    }
+    return '';
+  }
+
+  PuzzleMode getPuzzleMode(String modeStr) {
+    if (modeStr == 'simple') {
+      return PuzzleMode.simple;
+    } else if (modeStr == 'book_stack') {
+      return PuzzleMode.book_stack;
+    } else if (modeStr == 'pyramid') {
+      return PuzzleMode.pyramid;
+    }
+    return PuzzleMode.simple;
+  }
+
   PuzzleMode _puzzleMode = PuzzleMode.simple;
-  // PuzzleMode _puzzleMode = PuzzleMode.book_stack;
-  // PuzzleMode _puzzleMode = PuzzleMode.pyramid;
   PuzzleMode get puzzleMode => _puzzleMode;
+  String get puzzleModeStr => getPuzzleModeStr(_puzzleMode);
   Future<void> updatePuzzleMode(PuzzleMode value) async {
     _puzzleMode = value;
     _modalMenu = false;
 
-    String puzzleModeStr = '';
-    if (value == PuzzleMode.simple) {
-      puzzleModeStr = 'simple';
-    } else if (value == PuzzleMode.book_stack) {
-      puzzleModeStr = 'book_stack';
-    } else if (value == PuzzleMode.pyramid) {
-      puzzleModeStr = 'pyramid';
-    }
-
     var prefs = await SharedPreferences.getInstance();
-    await prefs.setString('puzzleModeStr', puzzleModeStr);
+    await prefs.setString('puzzleModeStr', getPuzzleModeStr(_puzzleMode));
 
     notifyListeners();
   }
@@ -46,12 +65,7 @@ class AppModel extends ChangeNotifier {
 
     String puzzleModeStr = prefs.getString('puzzleModeStr') ?? 'simple';
     print('---savedMode: $puzzleModeStr');
-    if (puzzleModeStr == 'simple') {
-      _puzzleMode = PuzzleMode.simple;
-    } else if (puzzleModeStr == 'book_stack') {
-      _puzzleMode = PuzzleMode.book_stack;
-    } else if (puzzleModeStr == 'pyramid') {
-      _puzzleMode = PuzzleMode.pyramid;
-    }
+
+    _puzzleMode = getPuzzleMode(puzzleModeStr);
   }
 }
