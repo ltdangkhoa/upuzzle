@@ -11,6 +11,13 @@ class AppModel extends ChangeNotifier {
     notifyListeners();
   }
 
+  bool _leaderboard = false;
+  bool get leaderboard => _leaderboard;
+  Future<void> updateLeaderboard(bool value) async {
+    _leaderboard = value;
+    notifyListeners();
+  }
+
   String _player = 'upuzzle_player';
   String get player => _player;
   Future<void> updatePlayer(String value) async {

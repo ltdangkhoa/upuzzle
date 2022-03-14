@@ -53,6 +53,7 @@ class GameModel extends ChangeNotifier {
     _moves = 0;
     _movesHint = 0;
 
+    Provider.of<AppModel>(context, listen: false).updateLeaderboard(false);
     Provider.of<TimerModel>(context, listen: false).resetTimer();
     Provider.of<TimerModel>(context, listen: false).startTimer();
 

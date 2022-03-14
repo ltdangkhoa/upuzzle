@@ -1,7 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:upuzzle/typography/typography.dart';
 import '../../models/models.dart';
+import '../../l10n/l10n.dart';
 
 class SubmitScore extends StatefulWidget {
   @override
@@ -14,6 +16,7 @@ class _SubmitScoreState extends State<SubmitScore> {
   TextEditingController _textFieldController = TextEditingController();
   bool submitted = false;
   bool submitting = false;
+
   @override
   Widget build(BuildContext context) {
     String player = context.select((AppModel _) => _.player);
@@ -25,24 +28,30 @@ class _SubmitScoreState extends State<SubmitScore> {
     return submitting
         ? CircularProgressIndicator.adaptive()
         : TextButton(
+            style: TextButton.styleFrom(
+              backgroundColor: submitted ? Colors.greenAccent : Colors.blue,
+            ),
             onPressed: submitted == false
                 ? () async {
                     if (player == 'upuzzle_player') {
                       await showDialog<String>(
                         context: context,
                         builder: (BuildContext context) => AlertDialog(
-                          title: const Text('Choose a player name'),
+                          title: Text(context.l10n.chooseAPlayerName),
                           content: TextField(
                             onChanged: (value) {},
                             controller: _textFieldController,
                             decoration: InputDecoration(
-                              hintText: "player_123456",
+                              hintText: player,
                             ),
                           ),
                           actions: <Widget>[
                             TextButton(
                               onPressed: () {
-                                player = _textFieldController.text;
+                                player = _textFieldController.text.length > 0
+                                    ? _textFieldController.text
+                                    : 'noname_player';
+
                                 Provider.of<AppModel>(context, listen: false)
                                     .updatePlayer(player);
                                 Navigator.pop(context, 'OK');
@@ -77,8 +86,17 @@ class _SubmitScoreState extends State<SubmitScore> {
                     });
                   }
                 : null,
-            child: Text(
-              submitted == true ? "Submitted" : "Submit score",
+            child: AnimatedDefaultTextStyle(
+              key: const Key('submit_score_button'),
+              style: PuzzleTextStyle.label.copyWith(
+                color: Colors.white,
+              ),
+              duration: Duration(milliseconds: 500),
+              child: Text(
+                submitted == true
+                    ? context.l10n.submitted
+                    : context.l10n.submitScore,
+              ),
             ),
           );
   }

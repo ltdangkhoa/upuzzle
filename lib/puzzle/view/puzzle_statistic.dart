@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:provider/provider.dart';
 
+import '../../helpers/helpers.dart';
 import '../../l10n/l10n.dart';
 import '../../layout/layout.dart';
 import '../../models/models.dart';
@@ -30,7 +31,6 @@ class PuzzleStatistic extends StatelessWidget {
             children: [
               if (size == ResponsiveLayoutSize.large ||
                   size == ResponsiveLayoutSize.medium) ...[
-                Gap(20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -78,7 +78,7 @@ class PuzzleStatistic extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('${_formatDuration(timerDuration)}'),
+                    Text('${formatDuration(timerDuration)}'),
                     Icon(Icons.timer_outlined, color: Colors.grey),
                   ],
                 ),
@@ -91,12 +91,5 @@ class PuzzleStatistic extends StatelessWidget {
         },
       ),
     );
-  }
-
-  String _formatDuration(Duration duration) {
-    String twoDigits(int n) => n.toString().padLeft(2, '0');
-    final twoDigitMinutes = twoDigits(duration.inMinutes.remainder(60));
-    final twoDigitSeconds = twoDigits(duration.inSeconds.remainder(60));
-    return '${twoDigits(duration.inHours)}:$twoDigitMinutes:$twoDigitSeconds';
   }
 }
